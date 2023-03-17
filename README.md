@@ -53,13 +53,7 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 - Endpoint público utilizado para cadastro. Devolve um token jwt.
 
-// request POST /users/signup
-// body JSON
-{
-  "name": "Beltrana",
-  "email": "beltrana@email.com",
-  "password": "beltrana00"
-}
+![image](https://user-images.githubusercontent.com/111313480/226070793-45282ff7-f9a2-47d3-9171-a7b24aae780c.png)
 
 // response
 // status 201 CREATED
