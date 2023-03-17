@@ -68,7 +68,7 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 ![image](https://user-images.githubusercontent.com/111313480/226070935-a5a1b087-e2f1-479e-b097-f2a31db96f24.png)
 
-#Create post
+# Create post
 
 - Endpoint protegido, requer um token jwt para acessá-lo.
 
