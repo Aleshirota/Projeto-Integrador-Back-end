@@ -55,101 +55,71 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 ![image](https://user-images.githubusercontent.com/111313480/226070793-45282ff7-f9a2-47d3-9171-a7b24aae780c.png)
 
-// response
-// status 201 CREATED
-{
-  token: "um token jwt"
-}
 
 # Login
 
 - Endpoint público utilizado para login. Devolve um token jwt.
 
-// request POST /users/login
-// body JSON
-{
-  "email": "beltrana@email.com",
-  "password": "beltrana00"
-}
-
-// response
-// status 200 OK
-{
-  token: "um token jwt"
-}
+![image](https://user-images.githubusercontent.com/111313480/226070874-3032af85-9640-41c8-922c-01399582be05.png)
 
 # Get posts
 
 - Endpoint protegido, requer um token jwt para acessá-lo.
 
-// request GET /posts
-// headers.authorization = "token jwt"
-
-// response
-// status 200 OK
-[
-    {
-        "id": "uma uuid v4",
-        "content": "Hoje vou estudar POO!",
-        "likes": 2,
-        "dislikes" 1,
-        "createdAt": "2023-01-20T12:11:47:000Z"
-        "updatedAt": "2023-01-20T12:11:47:000Z"
-        "creator": {
-            "id": "uma uuid v4",
-            "name": "Fulano"
-        }
-    },
-    {
-        "id": "uma uuid v4",
-        "content": "kkkkkkkkkrying",
-        "likes": 0,
-        "dislikes" 0,
-        "createdAt": "2023-01-20T15:41:12:000Z"
-        "updatedAt": "2023-01-20T15:49:55:000Z"
-        "creator": {
-            "id": "uma uuid v4",
-            "name": "Ciclana"
-        }
-    }
-]
+![image](https://user-images.githubusercontent.com/111313480/226070935-a5a1b087-e2f1-479e-b097-f2a31db96f24.png)
 
 #Create post
 
 - Endpoint protegido, requer um token jwt para acessá-lo.
 
-// request POST /posts
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "content": "Partiu happy hour!"
-}
-
-// response
-// status 201 CREATED
+![image](https://user-images.githubusercontent.com/111313480/226070969-0a64f0ff-9642-4bda-ab79-a9678f04c956.png)
 
 # Edit post
 
 - Endpoint protegido, requer um token jwt para acessá-lo.
 - Só quem criou o post pode editá-lo e somente o conteúdo pode ser editado.
 
-// request PUT /posts/:id
-// headers.authorization = "token jwt"
-// body JSON
-{
-    "content": "Partiu happy hour lá no point de sempre!"
-}
-
-// response
-// status 200 OK
+![image](https://user-images.githubusercontent.com/111313480/226071028-d8a3c31a-c253-4b16-9788-63ea92b6b730.png)
 
 # Delete post
 
 - Endpoint protegido, requer um token jwt para acessá-lo.
 - Só quem criou o post pode deletá-lo. Admins podem deletar o post de qualquer pessoa.
 
-// request DELETE /posts/:id
-// headers.authorization = "token jwt"
+![image](https://user-images.githubusercontent.com/111313480/226071052-27e4211e-53dc-4cb4-9d44-9748791aa347.png)
 
-// response
-// status 200 OK
+## Like or dislike post (mesmo endpoint faz as duas coisas)
+
+Endpoint protegido, requer um token jwt para acessá-lo.
+Quem criou o post não pode dar like ou dislike no mesmo.
+
+Caso dê um like em um post que já tenha dado like, o like é desfeito.
+Caso dê um dislike em um post que já tenha dado dislike, o dislike é desfeito.
+
+Caso dê um like em um post que tenha dado dislike, o like sobrescreve o dislike.
+Caso dê um dislike em um post que tenha dado like, o dislike sobrescreve o like.
+
+# Like (funcionalidade 1)
+
+![image](https://user-images.githubusercontent.com/111313480/226071140-63ccb32b-3b8b-4c49-be0c-0d3bf161d915.png)
+
+# Dislike (funcionalidade 2)
+
+![image](https://user-images.githubusercontent.com/111313480/226071189-955bb09a-12f4-4ea9-b8fa-7dd230fb95f2.png)
+
+## Para entender a tabela likes_dislikes
+
+- no SQLite, lógicas booleanas devem ser controladas via 0 e 1 (INTEGER)
+
+- quando like valer 1 na tabela é porque a pessoa deu like no post
+
+- na requisição like é true
+- quando like valor 0 na tabela é porque a pessoa deu dislike no post
+
+- na requisição like é false
+- caso não exista um registro na tabela de relação, é porque a pessoa não deu like nem dislike
+
+- caso dê like em um post que já tenha dado like, o like é removido (deleta o item da tabela)
+
+- caso dê dislike em um post que já tenha dado dislike, o dislike é removido (deleta o item da tabela)
+
