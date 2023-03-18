@@ -15,6 +15,7 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 - <a href="#Geração de hashes">Geração de hashes</a>
 - <a href="#Autenticação e autorização">Autenticação e autorização</a>
 - <a href="#Roteamento">Roteamento</a>
+- <a href="#Testes em Backend com Jest">Testes em Backend com Jest</a>
 - <a href="#Postman">Postman</a>
 
 # Banco de Dados
@@ -41,6 +42,10 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 - [x] POO
 - [x] Arquitetura em camadas
 - [x] Roteadores no Express
+
+- Testes no Backend 
+
+- [x] Jest
 
 - Documentação Postman
 - [Link demostração](https://documenter.getpostman.com/view/24460930/2s93JzKfQe)
