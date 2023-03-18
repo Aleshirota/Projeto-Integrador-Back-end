@@ -4,6 +4,7 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 # Conteúdos Abordados
 
+- <a href="#NodeJs">NodeJs</a>
 - <a href="#Typescript">Typescript</a>
 - <a href="#Express">Express</a>
 - <a href="SQL e SQLite">SQL e SQLite</a>
