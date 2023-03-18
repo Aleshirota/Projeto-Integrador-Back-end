@@ -107,4 +107,7 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 ![image](https://user-images.githubusercontent.com/111313480/226071189-955bb09a-12f4-4ea9-b8fa-7dd230fb95f2.png)
 
+## Segue abaixo o Link do meu Repositório Front-end.
+
+- [Projeto Back-end](https://github.com/Aleshirota/Projeto-Integrador-Front-end)
 
