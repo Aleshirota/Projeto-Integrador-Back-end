@@ -90,14 +90,14 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 
 ## Like or dislike post (mesmo endpoint faz as duas coisas)
 
-Endpoint protegido, requer um token jwt para acessá-lo.
-Quem criou o post não pode dar like ou dislike no mesmo.
+- Endpoint protegido, requer um token jwt para acessá-lo.
+- Quem criou o post não pode dar like ou dislike no mesmo.
 
-Caso dê um like em um post que já tenha dado like, o like é desfeito.
-Caso dê um dislike em um post que já tenha dado dislike, o dislike é desfeito.
+- Caso dê um like em um post que já tenha dado like, o like é desfeito.
+- Caso dê um dislike em um post que já tenha dado dislike, o dislike é desfeito.
 
-Caso dê um like em um post que tenha dado dislike, o like sobrescreve o dislike.
-Caso dê um dislike em um post que tenha dado like, o dislike sobrescreve o like.
+- Caso dê um like em um post que tenha dado dislike, o like sobrescreve o dislike.
+- Caso dê um dislike em um post que tenha dado like, o dislike sobrescreve o like.
 
 # Like (funcionalidade 1)
 
@@ -107,19 +107,4 @@ Caso dê um dislike em um post que tenha dado like, o dislike sobrescreve o like
 
 ![image](https://user-images.githubusercontent.com/111313480/226071189-955bb09a-12f4-4ea9-b8fa-7dd230fb95f2.png)
 
-## Para entender a tabela likes_dislikes
-
-- no SQLite, lógicas booleanas devem ser controladas via 0 e 1 (INTEGER)
-
-- quando like valer 1 na tabela é porque a pessoa deu like no post
-
-- na requisição like é true
-- quando like valor 0 na tabela é porque a pessoa deu dislike no post
-
-- na requisição like é false
-- caso não exista um registro na tabela de relação, é porque a pessoa não deu like nem dislike
-
-- caso dê like em um post que já tenha dado like, o like é removido (deleta o item da tabela)
-
-- caso dê dislike em um post que já tenha dado dislike, o dislike é removido (deleta o item da tabela)
 
