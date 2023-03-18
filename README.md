@@ -46,9 +46,9 @@ O LabEddit é uma rede social com o objetivo de promover a conexão e interaçã
 - [Link demostração](https://documenter.getpostman.com/view/24460930/2s93JzKfQe)
 - [x] README.md
 
-## Exemplos de requisição
+# Exemplos de requisição
 
-# Signup
+## Signup
 
 - Endpoint público utilizado para cadastro. Devolve um token jwt.
 
